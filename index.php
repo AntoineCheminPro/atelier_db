@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header("Location: login.php");
+}
+
 // connect to database
 try{
     $db = new PDO('mysql:host=localhost;dbname=banque_php', 'BanquePHP', 'banque76');
